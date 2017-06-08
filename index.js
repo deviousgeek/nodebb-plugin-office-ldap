@@ -160,7 +160,7 @@
             try {
                 var client = ldapjs.createClient(options);
                 console.log(username);
-                client.bind(username, password, function(err) {
+                client.bind("cn=staff,dc=twopicode,dc=com", username, password, function(err) {
                     if (err) {
                         winston.error(err.message);
                         return next(new Error('[[error:invalid-password]]'));
