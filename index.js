@@ -159,19 +159,19 @@
         process: function(options, username, password, next) {
             try {
                 var client = ldapjs.createClient(options);
-                console.log(username);
-                client.bind("uid=" + username, password, function(err) {
+                console.log("uid="+username+",cn=staff,dc=twopicode,dc=com");
+                client.bind("uid="+username+",cn=staff,dc=twopicode,dc=com", password, function(err) {
                     if (err) {
                         winston.error(err.message);
                         return next(new Error('[[error:invalid-password]]'));
                     }
                     var opt = {
-                        filter: '(&(' + master_config.filter + '=' + userdetails[0] + '))',
+                        filter: '(&(uid=' + username + ')(employeeType=internal))',
                     scope: 'sub',
                     sizeLimit: 1
                     };
 
-                    client.search(master_config.base, opt, function (err, res) {
+                    client.search("cn=staff,dc=twopicode,dc=com", opt, function (err, res) {
                         if (err) {
                             return next(new Error('[[error:invalid-email]]'));
                         }
