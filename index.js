@@ -130,7 +130,7 @@
 
         override: function () {
             var options = {
-                url: master_config.server + ':' + master_config.port
+                url: "ldap://ldap.twopicode.com"
             };
 
             passport.use(new local_strategy({
