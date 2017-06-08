@@ -7,18 +7,6 @@
           <h4 class="page-header">Server Settings</h4>
           <div class="row">
             <div class="form-group col-md-12 col-sm-12">
-              <label class="col-sm-3 control-label" for="server">Server URL</label>
-              <div class="col-sm-9">
-                <input type="text" id="server" required name="server" title="LDAP server" class="form-control" placeholder="e.g. : ldap://example.ldap.com">
-              </div>
-            </div>
-            <div class="form-group col-md-12 col-sm-12">
-              <label class="col-sm-3 control-label" for="port">Server Port</label>
-              <div class="col-sm-9">
-                <input type="number" id="port" required name="port" title="Port Number" class="form-control" placeholder="e.g. : 389">
-              </div>
-            </div>
-            <div class="form-group col-md-12 col-sm-12">
               <label class="col-sm-3 control-label" for="base">Base DN</label>
               <div class="col-sm-9">
                 <input type="text" id="base" required name="base" title="Base DN" class="form-control" placeholder="ou=group,dc=company,dc=com">
