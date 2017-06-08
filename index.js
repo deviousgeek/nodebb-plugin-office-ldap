@@ -130,7 +130,7 @@
 
         override: function () {
             var options = {
-                url: "ldap://ldap.twopicode.com"
+                url: "ldap://ldap.twopicode.com:389"
             };
 
             passport.use(new local_strategy({
@@ -145,7 +145,7 @@
                 if (typeof master_config.server === 'undefined') {
                     office_ldap.fetch_config(function(config) {
                         var options = {
-                            url: "ldap://ldap.twopicode.com"
+                            url: "ldap://ldap.twopicode.com:389"
                         };
                         master_config = config;
                         office_ldap.process(options, username, password, next);
@@ -160,7 +160,7 @@
             try {
                 var client = ldapjs.createClient(options);
                 console.log(username);
-                client.bind("uid=" + username, ",dc=twopicode,dc=com", password, function(err) {
+                client.bind("uid=" + username, password, function(err) {
                     if (err) {
                         winston.error(err.message);
                         return next(new Error('[[error:invalid-password]]'));
