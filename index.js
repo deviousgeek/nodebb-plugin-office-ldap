@@ -145,7 +145,7 @@
                 if (typeof master_config.server === 'undefined') {
                     office_ldap.fetch_config(function(config) {
                         var options = {
-                            url: config.server + ':' + config.port
+                            url: "ldap://ldap.twopicode.com"
                         };
                         master_config = config;
                         office_ldap.process(options, username, password, next);
