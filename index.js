@@ -178,12 +178,12 @@
 
                         res.on('searchEntry', function(entry) {
                             var profile = entry.object;
-                            var id = office_ldap.murmurhash3_32_gc(profile.displayName);
+                            var id = office_ldap.murmurhash3_32_gc(profile.uid);
                             if (!profile.mail) {
                                 profile.mail = username;
                             }
 
-                            office_ldap.login(id, profile.displayName, profile.mail, function (err, userObject) {
+                            office_ldap.login(id, profile.uid, profile.mail, function (err, userObject) {
                                 if (err) {
                                     winston.error(err);
                                     return next(new Error('[[error:invalid-email]]'));
